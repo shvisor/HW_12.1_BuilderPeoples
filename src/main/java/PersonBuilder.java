@@ -2,7 +2,7 @@ public class PersonBuilder {
 
     protected String name;
     protected String surname;
-    protected int age;
+    protected int age = -1;
     protected String address;
 
 

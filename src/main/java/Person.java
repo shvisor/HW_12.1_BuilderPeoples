@@ -19,7 +19,7 @@ public class Person {
     }
 
     public boolean hasAge() {
-        return age.isPresent();
+        return age.getAsInt() >= 0;
     }
 
     public boolean hasAddress() {
@@ -35,7 +35,10 @@ public class Person {
     }
 
     public OptionalInt getAge() {
-        return OptionalInt.of(age.orElse(0));
+        if (!hasAge()) {
+            return OptionalInt.empty();
+        }
+        return age;
     }
 
     public String getAddress() {
@@ -61,10 +64,10 @@ public class Person {
     @Override
     public String toString() {
         return "Person {" +
-                "name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", age=" + age.getAsInt() +
-                ", address='" + address + '\'' +
+                "name='" + getName() + '\'' +
+                ", surname='" + getSurname() + '\'' +
+                ", age=" + getAge() +
+                ", address='" + getAddress() + '\'' +
                 '}';
     }
 
