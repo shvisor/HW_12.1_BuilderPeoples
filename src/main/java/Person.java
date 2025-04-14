@@ -4,7 +4,7 @@ import java.util.OptionalInt;
 public class Person {
     protected final String name;
     protected final String surname;
-    protected OptionalInt age;
+    protected OptionalInt age = OptionalInt.of(-1);
     protected String address;
 
     public Person(String name, String surname) {
