@@ -4,7 +4,7 @@ import java.util.OptionalInt;
 public class Person {
     protected final String name;
     protected final String surname;
-    protected OptionalInt age = OptionalInt.of(-1);
+    protected OptionalInt age = OptionalInt.empty();
     protected String address;
 
     public Person(String name, String surname) {
@@ -15,11 +15,11 @@ public class Person {
     public Person(String name, String surname, int age) {
         this.name = name;
         this.surname = surname;
-        this.age = OptionalInt.of(age);
+        this.age = age < 0 ? OptionalInt.empty() : OptionalInt.of(age);
     }
 
     public boolean hasAge() {
-        return age.getAsInt() >= 0;
+        return age.isPresent();
     }
 
     public boolean hasAddress() {
