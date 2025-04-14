@@ -35,9 +35,6 @@ public class Person {
     }
 
     public OptionalInt getAge() {
-        if (!hasAge()) {
-            return OptionalInt.empty();
-        }
         return age;
     }
 
