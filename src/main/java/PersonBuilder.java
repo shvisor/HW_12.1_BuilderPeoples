@@ -34,7 +34,7 @@ public class PersonBuilder {
             throw new IllegalStateException("Не указаны имя или фамилия");
         }
 
-        Person person = new Person(name, surname, age);
+        Person person = age < 0 ? new Person(name, surname) : new Person(name, surname, age);
         if (!address.isBlank()) {
             person.setAddress(address);
         }

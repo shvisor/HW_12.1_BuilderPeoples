@@ -15,7 +15,7 @@ public class Person {
     public Person(String name, String surname, int age) {
         this.name = name;
         this.surname = surname;
-        this.age = age < 0 ? OptionalInt.empty() : OptionalInt.of(age);
+        this.age = OptionalInt.of(age);
     }
 
     public boolean hasAge() {
